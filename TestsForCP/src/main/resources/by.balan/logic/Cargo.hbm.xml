@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="by.balan.entity.Cargo" table="cargo" catalog="mydb">
+        <id name="cargoID" column="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+        <property column="danger" name="cargoDanger" type="java.lang.Boolean"/>
+        <property column="number" name="number" type="java.lang.String"/>
+        <property column="quantity" name="cargoQuantity" type="java.lang.Integer"/>
+        <property column="operation" name="cargoOperation" type="java.lang.String"/>
+        <property column="properties" name="cargoProperties" type="java.lang.String"/>
+        <property column="date_operation" name="cargoDateOperation" type="java.lang.String"/>
+        <property column="weight" name="cargoWeight" type="java.lang.Double"/>
+        <many-to-one name="ship" class="by.balan.entity.Ship" >
+            <column name="Ship_id"/>
+        </many-to-one>
+        <many-to-one name="container" class="by.balan.entity.Container" >
+            <column name="Container_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

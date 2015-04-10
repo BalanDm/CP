@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="by.balan.entity.Container" table="container" catalog="mydb">
+        <id name="containerID" column="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+        <property column="type" name="containerType" type="java.lang.String"/>
+        <property column="width" name="containerWidth" type="java.lang.Double"/>
+        <property column="height" name="containerHeight" type="java.lang.Double"/>
+        <property column="weight" name="containerWeight" type="java.lang.Double"/>
+        <set name="cargos" lazy="false" cascade="save-update">
+            <key column="Container_id"/>
+            <one-to-many class="by.balan.entity.Cargo"/>
+        </set>
+    </class>
+</hibernate-mapping>
