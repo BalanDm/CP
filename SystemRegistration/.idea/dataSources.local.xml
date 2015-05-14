@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="MySQL - cpdb@localhost" uuid="90484d84-aa99-47cc-b262-d727f36dc293">
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-pattern>cpdb.*</schema-pattern>
+      <default-schemas>cpdb.*</default-schemas>
+    </data-source>
+  </component>
+</project>

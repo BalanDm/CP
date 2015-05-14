@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="by.balan.model.entity.Ship" table="ship" catalog="cpdb">
+        <id name="idShip" column="id_ship" type="java.lang.String">
+        </id>
+        <property column="name" name="name" type="java.lang.String"/>
+        <set name="cargos" lazy="false" cascade="save-update">
+            <key column="Ship_id_ship"/>
+            <one-to-many class="by.balan.model.entity.Cargo"/>
+        </set>
+    </class>
+</hibernate-mapping>

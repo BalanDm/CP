@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Login Form</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="wrapper">
+<form name="bid-form" class="bid-form" action="controller" method="post">
+    <div class="header">
+    <h1>Форма заявки</h1>
+    </div>
+    <div class="content">
+	<h2>Номер корабля</h2>
+	<input name="shipNum" type="text" class="input shipNum" value="" onfocus="this.value=''" />
+	<h2>Наименование коробля</h2>
+	<input name="shipName" type="text" class="input shipName" value="" onfocus="this.value=''" />
+	<h2>Номер груза</h2>
+    <input name="cargoNum" type="text" class="input cargoNum" value="" onfocus="this.value=''" />
+	<h2>Наименование груза</h2>
+	<input name="cargoName" type="text" class="input cargoName" value="" onfocus="this.value=''" />
+	<h2>Тип операции</h2>
+	<p>
+	<h3 align="center">Погрузка</h3> <input name="typeOp" type="radio" class="input_typeOp" value="in" />
+	<h3 align="center">Отгрузка</h3> <input name="typeOp" type="radio" class="input_typeOp" value="out" />
+	</p>
+	<h2 align="center">Опасный груз</h2>
+	<input name="dangerCargo" type="checkbox" class="input_check" value="in" />
+	<h2>Номер контейнера</h2>
+	<input name="containerNum" type="text" class="input containerNum" value="" onfocus="this.value=''" />
+    </div>
+    <div class="footer">
+    <input type="submit" name="submit" value="Зарегистрировать" class="button" />
+    </div>
+</form>
+</div>
+<div class="gradient"></div>
+</body>
+</html>

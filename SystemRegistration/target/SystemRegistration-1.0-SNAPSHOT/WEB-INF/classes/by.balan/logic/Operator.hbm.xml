@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="by.balan.model.entity.Operator" table="operator" catalog="cpdb">
+        <id name="idOperator" column="id_operator" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+        <property column="name" name="name" type="java.lang.String"/>
+        <property column="middle_name" name="middleName" type="java.lang.String"/>
+        <property column="last_name" name="lastName" type="java.lang.String"/>
+        <set name="bids" lazy="false" cascade="save-update">
+            <key column="Operator_id_operator"/>
+            <one-to-many class="by.balan.model.entity.Bid"/>
+        </set>
+    </class>
+</hibernate-mapping>

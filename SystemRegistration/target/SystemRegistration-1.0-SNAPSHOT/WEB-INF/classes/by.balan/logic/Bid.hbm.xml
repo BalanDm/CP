@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="by.balan.model.entity.Bid" table="bid" catalog="cpdb">
+        <id name="idBid" column="id_bid" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+        <property column="operation" name="operation" type="java.lang.String"/>
+        <property column="date_operation" name="dateOp" type="java.lang.String"/>
+        <many-to-one name="operator" class="by.balan.model.entity.Operator" lazy="false">
+            <column name="Operator_id_operator"/>
+        </many-to-one>
+        <many-to-one name="cargo" class="by.balan.model.entity.Cargo" lazy="false">
+            <column name="Cargo_id_cargo"/>
+        </many-to-one>
+        <many-to-one name="customer" class="by.balan.model.entity.Customer" lazy="false">
+            <column name="Customer_id"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

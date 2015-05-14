@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="by.balan.model.entity.Container" table="container" catalog="cpdb">
+        <id name="idContainer" column="id_container" type="java.lang.String">
+        </id>
+        <property column="type" name="type" type="java.lang.String"/>
+        <property column="weight" name="weight" type="java.lang.Integer"/>
+        <property column="height" name="height" type="java.lang.Integer"/>
+        <property column="width" name="width" type="java.lang.Integer"/>
+        <set name="cargos" lazy="false" cascade="save-update">
+            <key column="Container_id_container"/>
+            <one-to-many class="by.balan.model.entity.Cargo"/>
+        </set>
+    </class>
+</hibernate-mapping>
