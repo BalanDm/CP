@@ -9,6 +9,7 @@
         </id>
         <property column="operation" name="operation" type="java.lang.String"/>
         <property column="date_operation" name="dateOp" type="java.lang.String"/>
+        <property column="status" name="status" type="java.lang.String"/>
         <many-to-one name="operator" class="by.balan.model.entity.Operator" lazy="false">
             <column name="Operator_id_operator"/>
         </many-to-one>

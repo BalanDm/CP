@@ -9,4 +9,5 @@ import java.sql.SQLException;
  */
 public interface ContainerDAO {
     public void addContainer(Container container)throws SQLException;
+    public boolean searchEquals(String id)throws SQLException;
 }

@@ -9,4 +9,5 @@ import java.sql.SQLException;
  */
 public interface OperatorDAO {
     public void addOperator(Operator operator)throws SQLException;
+    public boolean searchOperEquals(Operator operator)throws SQLException;
 }

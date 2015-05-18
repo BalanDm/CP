@@ -9,27 +9,26 @@
     <schema name="" catalog="cpdb"/>
     <table name="bid" schema="" catalog="cpdb" type="TABLE">
       <column name="id_bid" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
-      <column name="Operator_id_operator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="Costumer_id_costumer" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Operator_id_operator" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="Customer_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="Cargo_id_cargo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="operation" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <column name="date_operation" sqlType="VARCHAR" precision="9" scale="0" nullable="true" jdbcType="12"/>
+      <column name="date_operation" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_bid"/>
       <foreign-key name="fk_Bid_Cargo1" columns="Cargo_id_cargo" ref-table="cargo" ref-schema="" ref-catalog="cpdb" ref-columns="id_cargo" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="fk_Bid_Costumer1" columns="Costumer_id_costumer" ref-table="customer" ref-schema="" ref-catalog="cpdb" ref-columns="id_customer" update-rule="0" delete-rule="0" deferrability="2"/>
-      <foreign-key name="fk_Bid_Operator1" columns="Operator_id_operator" ref-table="operator" ref-schema="" ref-catalog="cpdb" ref-columns="id_operator" update-rule="0" delete-rule="0" deferrability="2"/>
+      <foreign-key name="fk_Bid_Customer1" columns="Customer_id" ref-table="customer" ref-schema="" ref-catalog="cpdb" ref-columns="id" update-rule="0" delete-rule="0" deferrability="2"/>
       <index name="fk_Bid_Cargo1_idx" unique="false" columns="Cargo_id_cargo"/>
-      <index name="fk_Bid_Costumer1_idx" unique="false" columns="Costumer_id_costumer"/>
+      <index name="fk_Bid_Costumer1_idx" unique="false" columns="Customer_id"/>
       <index name="fk_Bid_Operator1_idx" unique="false" columns="Operator_id_operator"/>
     </table>
     <table name="cargo" schema="" catalog="cpdb" type="TABLE">
-      <column name="id_cargo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_cargo" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="danger" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
-      <column name="quantity" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="Container_id_container" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="properties" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="Ship_id_ship" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
-      <column name="number" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="Container_id_container" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="Ship_id_ship" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="number" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_cargo"/>
       <foreign-key name="fk_Cargo_Container1" columns="Container_id_container" ref-table="container" ref-schema="" ref-catalog="cpdb" ref-columns="id_container" update-rule="0" delete-rule="0" deferrability="2"/>
       <foreign-key name="fk_Cargo_Ship1" columns="Ship_id_ship" ref-table="ship" ref-schema="" ref-catalog="cpdb" ref-columns="id_ship" update-rule="0" delete-rule="0" deferrability="2"/>
@@ -38,7 +37,7 @@
       <index name="fk_Cargo_Ship1_idx" unique="false" columns="Ship_id_ship"/>
     </table>
     <table name="container" schema="" catalog="cpdb" type="TABLE">
-      <column name="id_container" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_container" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="type" sqlType="VARCHAR" precision="25" scale="0" nullable="false" jdbcType="12"/>
       <column name="weight" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="height" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
@@ -47,26 +46,26 @@
       <exported-key name="fk_Cargo_Container1" table="cargo" schema="" catalog="cpdb" columns="Container_id_container"/>
     </table>
     <table name="customer" schema="" catalog="cpdb" type="TABLE">
-      <column name="id_customer" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="organization" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
       <column name="phone" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
       <column name="mail" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
       <column name="password" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
-      <primary-key name="PRIMARY" columns="id_customer"/>
-      <exported-key name="fk_Bid_Costumer1" table="bid" schema="" catalog="cpdb" columns="Costumer_id_costumer"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="fk_Bid_Customer1" table="bid" schema="" catalog="cpdb" columns="Customer_id"/>
     </table>
     <table name="operator" schema="" catalog="cpdb" type="TABLE">
-      <column name="id_operator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_operator" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
       <column name="name" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="middle_name" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <column name="last_name" sqlType="VARCHAR" precision="45" scale="0" nullable="false" jdbcType="12"/>
+      <column name="login" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
+      <column name="password" sqlType="VARCHAR" precision="18" scale="0" nullable="false" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_operator"/>
-      <exported-key name="fk_Bid_Operator1" table="bid" schema="" catalog="cpdb" columns="Operator_id_operator"/>
     </table>
     <table name="ship" schema="" catalog="cpdb" type="TABLE">
-      <column name="id_ship" sqlType="INT UNSIGNED" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="id_ship" sqlType="VARCHAR" precision="20" scale="0" nullable="false" jdbcType="12"/>
       <column name="name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
-      <column name="hull_number" sqlType="VARCHAR" precision="20" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="id_ship"/>
       <exported-key name="fk_Cargo_Ship1" table="cargo" schema="" catalog="cpdb" columns="Ship_id_ship"/>
     </table>

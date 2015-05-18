@@ -9,5 +9,6 @@ import java.sql.SQLException;
  */
 public interface ShipDAO {
     public void addShip(Ship ship)throws SQLException;
-
+    public boolean searchEquals(String id)throws SQLException;
+    public Ship getShipById(String id) throws SQLException;
 }

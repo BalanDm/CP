@@ -4,8 +4,8 @@ package by.balan.controller;
 
 
 import by.balan.command.ActionCommand;
-import by.balan.command.ConfigurationManager;
-import by.balan.command.MessageManager;
+import by.balan.command.manager.ConfigurationManager;
+import by.balan.command.manager.MessageManager;
 import by.balan.command.factory.ActionFactory;
 
 import javax.servlet.RequestDispatcher;
@@ -18,10 +18,13 @@ import java.io.IOException;
 
 @WebServlet("/controller")
 public class Controller extends HttpServlet {
+
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
     }
@@ -30,23 +33,14 @@ public class Controller extends HttpServlet {
                                 HttpServletResponse response)
             throws ServletException, IOException {
         String page = null;
-// определение команды, пришедшей из JSP
         ActionFactory client = new ActionFactory();
         ActionCommand command = client.defineCommand(request);
-/*
-* вызов реализованного метода execute() и передача параметров
-* классу-обработчику конкретной команды
-*/
         page = command.execute(request);
-// метод возвращает страницу ответа
-
         if (page != null) {
             RequestDispatcher dispatcher =
                     getServletContext().getRequestDispatcher(page);
-// вызов страницы ответа на запрос
             dispatcher.forward(request, response);
         } else {
-// установка страницы c cообщением об ошибке
             page = ConfigurationManager.getProperty("path.page.index");
             request.getSession().setAttribute("nullPage",
                     MessageManager.getProperty("message.nullpage"));

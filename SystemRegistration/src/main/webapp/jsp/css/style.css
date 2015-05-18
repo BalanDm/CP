@@ -77,6 +77,60 @@ body {
 /*******************
 LOGIN FORM
 *******************/
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+	z-index: 99999;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	display: none;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	display: block;
+	pointer-events: auto;
+}
+
+.modalDialog > div {
+	width: 400px;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover { background: #00d9ff; }
+
 
 .login-form , .choice-form, .bid-form {
 	width: 300px;
@@ -370,6 +424,65 @@ FOOTER
 }
 
 /* Login button */
+.userTable-form .main .buttonRight, .adminTable-form .main .buttonRight, .main .buttonRight {
+	float:right;
+	padding: 8px 20px;
+
+	font-family: Arial, serif;
+	font-weight: 300;
+	font-size: 12px;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+
+	background: #56c2e1;
+	border: 1px solid #46b3d3;
+	border-radius: 5px;
+	cursor: pointer;
+
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+.userTable-form .main .button, .adminTable-form .main .button{
+	float:none;
+	padding: 8px 20px;
+
+	font-family: Arial, serif;
+	font-weight: 300;
+	font-size: 12px;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+
+	background: #56c2e1;
+	border: 1px solid #46b3d3;
+	border-radius: 5px;
+	cursor: pointer;
+
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+
+.adminTable-form .modalDialog .button{
+	float:none;
+	padding: 8px 20px;
+
+	font-family: Arial, serif;
+	font-weight: 300;
+	font-size: 12px;
+	color: #fff;
+	text-shadow: 0px 1px 0 rgba(0,0,0,0.25);
+
+	background: #56c2e1;
+	border: 1px solid #46b3d3;
+	border-radius: 5px;
+	cursor: pointer;
+
+	box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-moz-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
+}
+
 .login-form .footer .button, .bid-form .footer .button {
 	float:right;
 	padding: 11px 25px;
@@ -428,7 +541,7 @@ FOOTER
 	-webkit-box-shadow: inset 0 0 2px rgba(256,256,256,0.75);
 }
 
-.login-form .footer .button, .choice-form .footer .button, .choice-form .header .button, .bid-form .footer .button :hover {
+.login-form .footer .button, .choice-form .footer .button, .choice-form .header .button, .bid-form .footer .button, .userTable-form .main .button, .userTable-form .main .buttonRight, .adminTable-form .main .button, .adminTable-form .main .buttonRight, .main .buttonRight:hover {
 	background: #3f9db8;
 	border: 1px solid rgba(256,256,256,0.75);
 	
@@ -437,7 +550,7 @@ FOOTER
 	-webkit-box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
 }
 
-.login-form .footer .button, .choice-form .footer .button, .choice-form .header .button, .bid-form .footer .button :focus {
+.login-form .footer .button, .choice-form .footer .button, .userTable-form .main .buttonRight, .choice-form .header .button, .bid-form .footer .button, .userTable-form .main .button, .adminTable-form .main .button, .adminTable-form .main .buttonRight, .main .buttonRight:focus {
 	position: relative;
 	bottom: -1px;
 	

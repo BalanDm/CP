@@ -1,12 +1,15 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page pageEncoding="UTF-8"%>
+
 <jsp:useBean id="customers" class="java.util.ArrayList" scope="request"/>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <style>
     <%@include file='css/jq.css' %>
+    <%@include file='css/style.css' %>
     <%@include file='css/blue/style.css' %>
     <%@include file='css/blue/style2.css' %>
   </style>
@@ -24,17 +27,26 @@
   </script>
 </head>
 <body>
-<form name="userTable-form" class="userTable-form" action="controller" method="get">
+<form name="userTable-form" class="userTable-form" action="controller" method="POST">
   <input type="hidden" name="command" value="getAll" />
-  <div id="main">
+  <c:if test="${empty nameClient}">
+    <jsp:include page="../index.jsp"/>
+    <jsp:forward page="../index.jsp"/>
+  </c:if>
+  <div id="main" class="main">
     <h1>Ваши заявки
       <input name="search" type="text" class="input search" value="Поиск" onfocus="this.value=''" />
-      <select>
-        <option>по короблю</option>
-        <option>по дате</option>
-        <option>по номеру</option>
+      <select name="searchType">
+        <option value="bidNum">по номеру заявки</option>
+        <option value="shipNum">по номеру коробля</option>
+        <option value="cargoNum">по номеру груза</option>
+        <option value="numContainer">по номеру контейнера</option>
+        <option value="dateOp">по дате операции</option>
       </select>
+      <input type="submit" name="search" value="Искать" class="button" />
       <input type="submit" name="refresh" value="Обновить" class="button" />
+      <input type="submit" name="exit" value="Выход" class="buttonRight" />
+      <input type="submit" name="home" value="На главную" class="buttonRight" />
       </h1>
         <table id="tablesorter-demo" class="tablesorter" border="0" cellpadding="0" cellspacing="1">
           <thead>

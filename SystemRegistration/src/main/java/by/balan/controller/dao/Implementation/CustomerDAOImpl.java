@@ -40,6 +40,7 @@ public class CustomerDAOImpl implements CustomerDAO {
             query.setString("email", customer.getMail());
             query.setString("password", customer.getPassword());
             custList=query.list();
+            customer.setIdCustomer(custList.get(0).getIdCustomer());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Ошибка", JOptionPane.OK_OPTION);
         } finally {
@@ -51,6 +52,7 @@ public class CustomerDAOImpl implements CustomerDAO {
               return true;
         else return false;
     }
+
 
     public Customer getEqualsCustomer(String email) throws SQLException {
         Session session = null;

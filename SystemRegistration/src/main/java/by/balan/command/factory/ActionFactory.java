@@ -4,7 +4,8 @@ package by.balan.command.factory;
 
 import by.balan.command.ActionCommand;
 import by.balan.command.EmptyCommand;
-import by.balan.command.MessageManager;
+import by.balan.command.manager.MessageManager;
+import by.balan.command.servlet.CommandEnum;
 
 import javax.servlet.http.HttpServletRequest;
 

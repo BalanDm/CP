@@ -10,6 +10,8 @@
         <property column="name" name="name" type="java.lang.String"/>
         <property column="middle_name" name="middleName" type="java.lang.String"/>
         <property column="last_name" name="lastName" type="java.lang.String"/>
+        <property column="login" name="login" type="java.lang.String"/>
+        <property column="password" name="password" type="java.lang.String"/>
         <set name="bids" lazy="false" cascade="save-update">
             <key column="Operator_id_operator"/>
             <one-to-many class="by.balan.model.entity.Bid"/>

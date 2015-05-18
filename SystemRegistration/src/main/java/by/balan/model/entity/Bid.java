@@ -10,6 +10,15 @@ public class Bid {
     private Customer customer;
     private Cargo cargo;
     private Operator operator;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Operator getOperator() {
         return operator;

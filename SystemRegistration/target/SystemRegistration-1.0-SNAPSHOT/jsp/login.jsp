@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
+<%@page pageEncoding="UTF-8"%>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -15,18 +17,18 @@
 <div id="wrapper">
   <div class="email-icon-idx"></div>
   <div class="pass-icon-idx"></div>
-  <form name="login-form" class="login-form" action="controller" method="post">
+  <form name="login-form" class="login-form" action="controller" method="POST">
     <input type="hidden" name="command" value="login" />
     <div class="header">
     <h1>Вход</h1>
     </div>
     <div class="content">
-      <input name="mail" type="text" class="input email" value="E-Mail" onfocus="this.value=''" />
-      <input name="pass" type="password" class="input password" value="Password" onfocus="this.value=''" />
+      <input placeholder="E-mail" type="email" name="mail" type="text" class="input email" value="E-mail" onfocus="this.value=''" required/>
+      <input placeholder="password" name="pass" type="password" class="input password"  value="password" onfocus="this.value=''"required/>
     </div>
     <div class="footer">
     <input type="submit" name="log" value="Вход" class="button" />
-    <input type="submit" name="reg" value="Регистрация" class="register" />
+    <input type="submit" name="reg" value="Регистрация" class="register" formnovalidate/>
     </div>
   </form>
 </div>

@@ -12,7 +12,6 @@ public class BidInfo {
     private String surnameOper;
     private String numShip;
     private String nameShip;
-    private String nameCargo;
     private String numCargo;
     private String typeOp;
     private boolean danger;
@@ -20,6 +19,8 @@ public class BidInfo {
     private String numContainer;
 
     public BidInfo(){}
+
+
     public BidInfo(Long numBid, String dateOp, String nameOper, String surnameOper,
                    String numShip, String numCargo, String typeOp, boolean danger,
                    String numContainer) {
@@ -81,14 +82,6 @@ public class BidInfo {
 
     public void setNameShip(String nameShip) {
         this.nameShip = nameShip;
-    }
-
-    public String getNameCargo() {
-        return nameCargo;
-    }
-
-    public void setNameCargo(String nameCargo) {
-        this.nameCargo = nameCargo;
     }
 
     public String getNumCargo() {
